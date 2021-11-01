@@ -1,0 +1,25 @@
+
+{{users}}
+<br>
+<br>
+<br>
+<img [src]="image.src" alt="hola">
+
+<br>
+<br>
+<br>
+<input type="button" value="Hola" (click)="onClickHola()">
+
+<br>
+<br>
+<br>
+<input type="text" placeholder="Nombre" [(ngModel)]="user.name">
+{{user.name}}
+<br>
+<br>
+<input type="text" placeholder="Email" [(ngModel)]="user.email">
+{{user.email}}
+<br>
+<br>
+<input type="button" value="Save" (click)="onClickSaveForm()">
+
