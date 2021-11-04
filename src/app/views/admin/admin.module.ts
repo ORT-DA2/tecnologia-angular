@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AngularMaterialModule } from 'src/app/components/angular-material/angular-material.module';
 import { FormsModule } from '@angular/forms';
 import { NavigationModule } from 'src/app/components/navigation/navigation.module';
+import { UserService } from 'src/app/services/user/user.service';
 
 
 @NgModule({
@@ -20,8 +21,8 @@ import { NavigationModule } from 'src/app/components/navigation/navigation.modul
     CommonModule,
     FormsModule,
     AdminRoutingModule,
-    NavigationModule
+    NavigationModule,
     //AngularMaterialModule
-  ]
+  ],
 })
 export class AdminModule { }

@@ -9,6 +9,8 @@ import { AngularMaterialModule } from './components/angular-material/angular-mat
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './views/login/login.component';
 import { NotFoundComponent } from './views/not-found/not-found.component';
+import { AuthorizationGuard } from './guards/authorization.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,9 @@ import { NotFoundComponent } from './views/not-found/not-found.component';
     RouterModule,
     AngularMaterialModule,
     AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthorizationGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
