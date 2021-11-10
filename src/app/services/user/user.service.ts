@@ -1,32 +1,27 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from 'src/app/models/User';
 import { environment } from 'src/environments/environment';
+import { BaseService } from '../BaseService';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class UserService extends BaseService {
   endpoint = `${environment.webApi_origin}/users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    super();
+  }
 
   getUsers(): Observable<User[]> {
     console.log("Llegue al servicio");
-    return this.http.get<User[]>(this.endpoint).pipe(catchError(this.handleError));
+    return this.http.get<User[]>(this.endpoint).pipe(catchError(super.handleError));
   }
 
-  private handleError(error: HttpErrorResponse){
-    if(error.status === 0){
-      return throwError({mensaje:"Server is shut down"});
-    }else{
-      if(error.status == 400){
-        return throwError(error.error.mensaje);
-      }else{
-        return throwError("Server with problems");
-      }
-    }
+  createUser(): Observable<any> {
+    return this.http.post<any>(this.endpoint, { algo: "hola" }, super.header).pipe(catchError(super.handleError));
   }
 }

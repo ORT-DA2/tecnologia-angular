@@ -16,6 +16,16 @@ export class AdminComponent implements OnInit {
       {
         values: ["2", "Alejo", "ale@gmail.com"]
       }
+    ],
+    options:[
+      {
+        type: "button",
+        title: "Hola",
+        path: "/admin/pepito",
+        click: () => {
+          alert("Hola")
+        }
+      }
     ]
   }
   constructor() { }
